@@ -1,0 +1,5 @@
+$('.import_csv').html("<%= escape_javascript(render 'import_csv.html.erb')%>")
+$('.user_tabe_data').html("<%= escape_javascript(render 'user_table.html.erb')%>")
+$(".sucess_csv").css("display", "block");
+$(".sucess_csv").text("Csv is successfully upload and table is updated")
+$(".sucess_csv").fadeOut(3000);

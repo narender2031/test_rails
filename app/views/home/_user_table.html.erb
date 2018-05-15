@@ -1,0 +1,28 @@
+<% if @users.blank? %>
+	<p class="" style="text-align:center; color:#444;">No user data! </p>
+<% else %>
+	<table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+		<thead>
+			<tr>
+				<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Name</th>
+				<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Number</th>
+				<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Description</th>
+				<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |u| %>
+				<tr>
+					<td class=""><%= u.name %></td>
+					<td class=""><%= u.number %></td>
+					<td class=""><%= u.description %></td>
+					<td class=""><%= u.date %></td>
+				</tr>
+			<% end %>	
+		</tbody>
+	</table>	
+<% end %>	
+<script>
+//$('.flash-message').fadeOut(3000)
+	$('#datatable').DataTable();
+</script>

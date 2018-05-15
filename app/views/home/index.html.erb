@@ -1,0 +1,85 @@
+<body class="dash-body nav-sm" id="dash">
+	<div class="container body">
+		<div class="main_container">
+			<%= render partial: "layouts/left_col", :locals => {active: "Dashboard"} %>
+			<%= render partial: "layouts/nav_bar", :locals => {active: "Dashboard"} %>
+			<div class="right_col" >
+				<div class="row">
+						<center><p class="sucess_csv" style="display:none;position: relative;top: -2px;color: #60bd6a; width: 40%;"></p></center>
+					<% flash.each do |name, msg|%>
+						<center> 
+							<div class='flash-message alert alert-<%= name %> flash-message-dashbord' id="flash-message-desktop" style=" margin-top: 35px; height: 0px;">
+								<center><p class="flash-message-dash" style="position: relative;top: -2px;color: #ed5a5a; width: 40%;"><%= msg %></p></center>
+							</div>
+						</center>
+					<% end %>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="x_panel">
+								<div class="x_title">
+										<h4 class="header_pannel">Users</h4>
+								</div>
+								<div class="x_content">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12 user_tabe_data">
+											<% if @users.blank? %>
+												<p class="" style="text-align:center; color:#444;">No user data! </p>
+											<% else %>
+												<table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+													<thead>
+														<tr>
+															<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Name</th>
+															<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Number</th>
+															<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Description</th>
+															<th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 175px;">Date</th>
+														</tr>
+													</thead>
+													<tbody>
+														<% @users.each do |u| %>
+															<tr>
+																<td class=""><%= u.name %></td>
+																<td class=""><%= u.number %></td>
+																<td class=""><%= u.description %></td>
+																<td class=""><%= u.date %></td>
+															</tr>
+														<% end %>	
+													</tbody>
+												</table>	
+											<% end %>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<div class="x_panel">
+								<div class="x_title">
+									<h4 class="header_pannel">Upload CSV</h4>
+								</div>
+								<div class="x_contant import_csv">
+									<%= form_tag import_path, remote: true, multipart: true do %>
+										<fieldset class="import_form">
+											<div class="row">
+												<div class="col-md-12 col-sm-12 col-xs-12 file_field">
+													<%= file_field_tag :file %>
+												</div>
+												<div class="col-sm-12 col-sm-12 col-xs-12">
+													<%= submit_tag "Import", class:"submit_csv" %>
+												</div>
+											</div>
+										</fieldset>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>  
+</body>	      
+<script>
+		$('.flash-message-dash').fadeOut(3000)
+	 $('.flash-message').fadeOut(3000)
+    $('#datatable').DataTable();
+</script>

@@ -1,0 +1,73 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.submit_csv{
+    width: 98%;
+    border: 1px solid #5fcf80;
+    border-radius: 5px;
+    color: #fff;
+    background: #5fcf80;
+}
+.submit_csv:hover{
+    
+   
+}
+
+.file_field {
+    margin-bottom: 20px;
+}
+.import_form{
+    padding: 10px;
+    color: #444;
+}
+.header_pannel{
+    font-size: 16px !important;
+    color:#444 !important;
+}
+#datatable_length{
+    color: #444;
+}
+#datatable_length select{
+    height: 41px !important;
+    background: #fff !important;
+}
+
+#datatable_filter{
+    color: #444;
+    padding: 2px;
+}
+
+#datatable_filter input {
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#datatable{
+  color: #444 !important;
+}
+
+.dataTables_paginate{
+    color: #444 !important;
+    background: no-repeat !important;
+}
+.dataTables_paginate span {
+    color: #444 !important;
+    background: none !important;
+}
+a .paginate_button{
+    background: none!important;
+}
+
+.dataTables_info{
+    color: #444
+}
+
+.dataTables_paginate a .paginate_button{
+    background: none !important;
+    color: #444 !important;   
+}
+
+.paginate_button{
+    background: none !important;
+}
